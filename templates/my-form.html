@@ -1,0 +1,126 @@
+<!-- /templates/my-form.html-->
+
+<html>
+    <head>
+        <title>NJ sustainable programs over time</title>
+    </head>
+    <body>
+	    <h3>NJ sustainable programs over time</h3>
+
+	    <h4>Insert what year and program data you would like to look at</h4>
+<form action="/solar_programs_handler" method="POST">
+    <div>
+        Find all solar programs in municipality (search by municipality index)
+        <br>
+        *P.S. If you do not know your municipality's index, search for it using the municipality search below!
+        <br>
+        <input type="int" name="municipality_index" placeholder="Municipality Index">
+    </div>
+        <input type="submit" value="Submit">
+</form>
+
+
+<form action="/ee_handler" method="POST">
+    <div>
+        <br>
+        Compare a municipality's greenhouse gas emissions to its number of completed energy efficiency programs
+        <br>
+        Minimum Population: <input type ="int" name="pop_min" placeholder="Minimum Population">
+        <br>
+        Maximum Population: <input type ="int" name="pop_max" placeholder="Maximum Population">
+    </div>
+        <input type="submit" value="Submit">
+
+</form>
+
+<br>
+
+<form action="ee2_handler" method="POST">
+    <div>
+        Compare the number of energy efficiency programs completed, and number needed to get to a participation rate of 5% across the municipalities
+        <br>
+    </div>
+        <input type="submit" value="View">
+</form>
+
+<br>
+
+<form action="com_handler" method="POST">
+    <div>
+        See how the median household income and population have an effect on a municipality's number of energy efficiency programs and solar installations
+        <br>
+        (Select which municipality attribute you would like to order by)
+        <br>
+        <input type="radio" id="mhi" name ="attribute" value="median_household_income">
+        <label for="mhi">Median Household Income</label><br>
+        <input type="radio" id="pop" name ="attribute" value="population">
+        <label for="pop">Population</label><br>
+    </div>
+        <input type="submit" value="Submit">
+</form>
+
+<br>
+<form action="com_handler2" method="POST">
+    <div>
+        See how the median household income and population have an effect on a municipality's electricity usage and greenhouse gas emissions
+        <br>
+        (Select which municipality attribute you would like to order by)
+        <br>
+        <input type="radio" id="mhi" name ="attribute" value="median_household_income">
+        <label for="mhi">Median Household Income</label><br>
+        <input type="radio" id="pop" name ="attribute" value="population">
+        <label for="pop">Population</label><br>
+    </div>
+        <input type="submit" value="Submit">
+</form>
+
+<br>
+
+<form action ="/municipality_handler" method="POST">
+    <div>
+        Find the municipality index of your municipality (search by municipality name)
+        <br>
+        <input type="varchar" name="municipality_name" placeholder="Municipality">
+    </div>
+        <input type="submit" value="Submit">
+</form>
+<br>
+<form action="/query-handler" method="POST">
+    <div>
+        Enter any PGSQL command, terminated with a semicolon
+        <br />
+            <input type="text" name="query" placeholder="Example: SELECT * FROM municipality;" size="50">
+    </div>
+        <input type="submit" value="Submit">
+</form>
+
+  <!-- <label for="year">Year:</label>
+  <select id="year" name="year">
+    <option value="2015">2015</option>
+    <option value="2020">2020</option>
+  </select>
+  <br>
+  <label for="data-type">Data Type:</label>
+  <select id="data-type" name="data-type">
+    <option value="solar-installation-data">Solar Installation Data</option>
+    <option value="green-data">Green Data</option>
+    <option value="oil-data">Oil Data</option>
+  </select>
+  <br>
+  <button type="submit">Submit</button>
+</form> -->
+
+	   
+    </body>
+
+    <!-- minimal styling -->
+    <style>
+        form {
+            margin: 1%;
+        }
+
+        div {
+            margin: 1% 0;
+        }
+    </style>
+</html>
